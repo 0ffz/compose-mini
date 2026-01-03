@@ -1,9 +1,8 @@
-package me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.layers
+package me.dvyy.compose.minimal.runtime.layers
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Composition
 import androidx.compose.runtime.CompositionContext
-import me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.MinimalNode
 
 /**
  * A layer in a [ComposableSurface]'s composition, created as a subcomposition.
@@ -13,7 +12,7 @@ import me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.MinimalNode
  * (ex. for composition locals, getting parent node information, etc...), while Kool sees it as a node
  * directly under the root node.
  */
-class ComposeSceneLayer<T : MinimalNode>(
+class ComposeSceneLayer<T >(
     val owner: ComposeSceneContext<T>,
     val parentContext: CompositionContext,
     val rootNode: T,

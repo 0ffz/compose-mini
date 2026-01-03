@@ -1,4 +1,4 @@
-package me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.layers
+package me.dvyy.compose.minimal.runtime.layers
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -6,7 +6,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCompositionContext
 import androidx.compose.runtime.rememberUpdatedState
-import me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.MinimalNode
 
 /**
  * Creates a [ComposeSceneLayer] bound do this context.
@@ -14,7 +13,7 @@ import me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.MinimalNode
  * Handles disposing of the layer when this composable is disposed.
  */
 @Composable
-internal fun <T : MinimalNode> rememberComposeSceneLayer(): ComposeSceneLayer<*> {
+fun rememberComposeSceneLayer(): ComposeSceneLayer<*> {
     val layers = LocalComposeSceneContext.current
     val parentComposition = rememberCompositionContext()
     val layer = remember { layers.createLayer(parentComposition) }
@@ -27,7 +26,7 @@ internal fun <T : MinimalNode> rememberComposeSceneLayer(): ComposeSceneLayer<*>
 }
 
 @Composable
-internal fun ComposeSceneLayer<*>.Content(content: @Composable () -> Unit) {
+fun ComposeSceneLayer<*>.Content(content: @Composable () -> Unit) {
     val currentContent by rememberUpdatedState(content)
     DisposableEffect(this) {
         setContent {

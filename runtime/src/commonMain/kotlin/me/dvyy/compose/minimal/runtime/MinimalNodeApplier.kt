@@ -1,4 +1,4 @@
-package me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime
+package me.dvyy.compose.minimal.runtime
 
 import androidx.compose.runtime.AbstractApplier
 
@@ -19,7 +19,7 @@ class MinimalNodeApplier<T : MinimalNode>(root: T)  : AbstractApplier<T>(root) {
     }
 
     override fun move(from: Int, to: Int, count: Int) {
-        current.moveChild(from, to)
+        current.moveChild(from, to, count)
     }
 
     override fun onClear() {

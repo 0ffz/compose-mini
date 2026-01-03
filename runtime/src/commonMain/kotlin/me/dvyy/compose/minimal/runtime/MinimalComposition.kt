@@ -7,17 +7,18 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Recomposer
 import androidx.compose.runtime.snapshots.Snapshot
 import kotlinx.coroutines.*
-import me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.layers.ComposeSceneContext
-import me.dvyy.compose.minimal.me.dvyy.compose.minimal.runtime.layers.LocalComposeSceneContext
+import me.dvyy.compose.minimal.runtime.layers.ComposeSceneContext
+import me.dvyy.compose.minimal.runtime.layers.LocalComposeSceneContext
+import me.dvyy.compose.minimal.runtime.nanoTime
 import kotlin.coroutines.CoroutineContext
 
-class MinimalComposition<T : MinimalNode>(
+class MinimalComposition<T>(
     coroutineContext: CoroutineContext,
     private val onFrameAwaiters: () -> Unit,
     private val wrapContent: @Composable (content: @Composable () -> Unit) -> Unit,
     private val createLayerNode: () -> T,
     private val removeLayerNode: (T) -> Unit,
-    private val applierForNode: (T) -> Applier<T> = { MinimalNodeApplier(it) },
+    private val applierForNode: (T) -> Applier<T>,
 ) : AutoCloseable {
     private var hasFrameWaiters = false
     private var running = false

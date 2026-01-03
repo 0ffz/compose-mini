@@ -10,6 +10,7 @@ repositories {
 }
 
 kotlin {
+    jvmToolchain(17)
     jvm()
     js(IR) {
         browser()
@@ -19,14 +20,14 @@ kotlin {
         browser()
         nodejs()
     }
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
-    linuxX64()
+//    iosX64()
+//    iosArm64()
+//    iosSimulatorArm64()
+//    linuxX64()
 
     sourceSets {
         commonMain.dependencies {
-            api(compose.runtime)
+            compileOnly(compose.runtime)
         }
         all {
             languageSettings.enableLanguageFeature("ContextParameters")
