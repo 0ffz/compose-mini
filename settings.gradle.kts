@@ -25,4 +25,4 @@ dependencyResolutionManagement {
     }
 }
 
-include("runtime")
+include("runtime", "modifier", "modifier-composed")
