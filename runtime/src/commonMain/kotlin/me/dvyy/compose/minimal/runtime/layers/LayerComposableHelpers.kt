@@ -25,6 +25,9 @@ fun rememberComposeSceneLayer(): ComposeSceneLayer<*> {
     return layer
 }
 
+/**
+ * Sets the content of a [ComposeSceneLayer], ensuring it updates when the outer composition state changes.
+ */
 @Composable
 fun ComposeSceneLayer<*>.Content(content: @Composable () -> Unit) {
     val currentContent by rememberUpdatedState(content)

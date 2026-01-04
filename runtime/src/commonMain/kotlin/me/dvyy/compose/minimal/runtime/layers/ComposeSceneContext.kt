@@ -5,10 +5,17 @@ import androidx.compose.runtime.CompositionContext
 import androidx.compose.runtime.compositionLocalOf
 
 /**
- * Context for the current compose scene (bound to a [de.fabmax.kool.modules.compose.surface.ComposableSurface]).
+ * Manages multiple layers in composition. Loosely based on the androidx class of the same name.
  *
- * Manages multiple layers in composition for one surface.
- * Loosely based on the androidx class of the same name.
+ * Layers are subcompositions managed via [createLayerNode] and [removeLayerNode].
+ * These can interact with the outside world as needed
+ * (ex. you may create a node directly under a root ui node, or create entirely new UI windows.)
+ *
+ * Useful for popup-style composables which should append to a different place in the UI tree, but access
+ * composition locals from the current context.
+ *
+ * @see ComposeSceneLayer
+ * @see rememberComposeSceneLayer
  */
 class ComposeSceneContext<T>(
     val createLayerNode: () -> T,

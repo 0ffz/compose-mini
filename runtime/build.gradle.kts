@@ -27,7 +27,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            compileOnly(compose.runtime)
+            implementation(compose.runtime)
         }
         all {
             languageSettings.enableLanguageFeature("ContextParameters")
