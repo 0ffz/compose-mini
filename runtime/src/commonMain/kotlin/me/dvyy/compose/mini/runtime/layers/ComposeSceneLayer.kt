@@ -1,4 +1,4 @@
-package me.dvyy.compose.minimal.runtime.layers
+package me.dvyy.compose.mini.runtime.layers
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Composition

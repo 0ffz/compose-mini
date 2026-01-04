@@ -1,35 +1,35 @@
-package me.dvyy.compose.minimal.modifier
+package me.dvyy.compose.mini.modifier
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Composer
 import androidx.compose.runtime.Stable
 
 /**
- * Declare a just-in-time composition of a [me.dvyy.compose.minimal.modifier.Modifier] that will be composed for each element it
+ * Declare a just-in-time composition of a [Modifier] that will be composed for each element it
  * modifies. [composed] may be used to implement **stateful modifiers** that have instance-specific
- * state for each modified element, allowing the same [me.dvyy.compose.minimal.modifier.Modifier] instance to be safely reused for
+ * state for each modified element, allowing the same [Modifier] instance to be safely reused for
  * multiple elements while maintaining element-specific state.
  *
  * [materialize] must be called to create instance-specific modifiers if you are directly applying a
- * [me.dvyy.compose.minimal.modifier.Modifier] to an element tree node.
+ * [Modifier] to an element tree node.
  */
 public fun Modifier.composed(
 	factory: @Composable Modifier.() -> Modifier,
 ): Modifier = this.then(ComposedModifier(factory))
 
 /**
- * Declare a just-in-time composition of a [me.dvyy.compose.minimal.modifier.Modifier] that will be composed for each element it
+ * Declare a just-in-time composition of a [Modifier] that will be composed for each element it
  * modifies. [composed] may be used to implement **stateful modifiers** that have instance-specific
- * state for each modified element, allowing the same [me.dvyy.compose.minimal.modifier.Modifier] instance to be safely reused for
+ * state for each modified element, allowing the same [Modifier] instance to be safely reused for
  * multiple elements while maintaining element-specific state.
  *
- * When keys are provided, [composed] produces a [me.dvyy.compose.minimal.modifier.Modifier] that will compare [equals] to another
+ * When keys are provided, [composed] produces a [Modifier] that will compare [equals] to another
  * modifier constructed with the same keys in order to take advantage of caching and skipping
  * optimizations. [fullyQualifiedName] should be the fully-qualified `import` name for your modifier
  * factory function, e.g. `com.example.myapp.ui.fancyPadding`.
  *
  * [materialize] must be called to create instance-specific modifiers if you are directly applying a
- * [me.dvyy.compose.minimal.modifier.Modifier] to an element tree node.
+ * [Modifier] to an element tree node.
  */
 public fun Modifier.composed(
 	fullyQualifiedName: String,
@@ -38,18 +38,18 @@ public fun Modifier.composed(
 ): Modifier = this.then(KeyedComposedModifier1(fullyQualifiedName, key1, factory))
 
 /**
- * Declare a just-in-time composition of a [me.dvyy.compose.minimal.modifier.Modifier] that will be composed for each element it
+ * Declare a just-in-time composition of a [Modifier] that will be composed for each element it
  * modifies. [composed] may be used to implement **stateful modifiers** that have instance-specific
- * state for each modified element, allowing the same [me.dvyy.compose.minimal.modifier.Modifier] instance to be safely reused for
+ * state for each modified element, allowing the same [Modifier] instance to be safely reused for
  * multiple elements while maintaining element-specific state.
  *
- * When keys are provided, [composed] produces a [me.dvyy.compose.minimal.modifier.Modifier] that will compare [equals] to another
+ * When keys are provided, [composed] produces a [Modifier] that will compare [equals] to another
  * modifier constructed with the same keys in order to take advantage of caching and skipping
  * optimizations. [fullyQualifiedName] should be the fully-qualified `import` name for your modifier
  * factory function, e.g. `com.example.myapp.ui.fancyPadding`.
  *
  * [materialize] must be called to create instance-specific modifiers if you are directly applying a
- * [me.dvyy.compose.minimal.modifier.Modifier] to an element tree node.
+ * [Modifier] to an element tree node.
  */
 public fun Modifier.composed(
 	fullyQualifiedName: String,
@@ -60,18 +60,18 @@ public fun Modifier.composed(
 	this.then(KeyedComposedModifier2(fullyQualifiedName, key1, key2, factory))
 
 /**
- * Declare a just-in-time composition of a [me.dvyy.compose.minimal.modifier.Modifier] that will be composed for each element it
+ * Declare a just-in-time composition of a [Modifier] that will be composed for each element it
  * modifies. [composed] may be used to implement **stateful modifiers** that have instance-specific
- * state for each modified element, allowing the same [me.dvyy.compose.minimal.modifier.Modifier] instance to be safely reused for
+ * state for each modified element, allowing the same [Modifier] instance to be safely reused for
  * multiple elements while maintaining element-specific state.
  *
- * When keys are provided, [composed] produces a [me.dvyy.compose.minimal.modifier.Modifier] that will compare [equals] to another
+ * When keys are provided, [composed] produces a [Modifier] that will compare [equals] to another
  * modifier constructed with the same keys in order to take advantage of caching and skipping
  * optimizations. [fullyQualifiedName] should be the fully-qualified `import` name for your modifier
  * factory function, e.g. `com.example.myapp.ui.fancyPadding`.
  *
  * [materialize] must be called to create instance-specific modifiers if you are directly applying a
- * [me.dvyy.compose.minimal.modifier.Modifier] to an element tree node.
+ * [Modifier] to an element tree node.
  */
 public fun Modifier.composed(
 	fullyQualifiedName: String,
@@ -83,18 +83,18 @@ public fun Modifier.composed(
 	this.then(KeyedComposedModifier3(fullyQualifiedName, key1, key2, key3, factory))
 
 /**
- * Declare a just-in-time composition of a [me.dvyy.compose.minimal.modifier.Modifier] that will be composed for each element it
+ * Declare a just-in-time composition of a [Modifier] that will be composed for each element it
  * modifies. [composed] may be used to implement **stateful modifiers** that have instance-specific
- * state for each modified element, allowing the same [me.dvyy.compose.minimal.modifier.Modifier] instance to be safely reused for
+ * state for each modified element, allowing the same [Modifier] instance to be safely reused for
  * multiple elements while maintaining element-specific state.
  *
- * When keys are provided, [composed] produces a [me.dvyy.compose.minimal.modifier.Modifier] that will compare [equals] to another
+ * When keys are provided, [composed] produces a [Modifier] that will compare [equals] to another
  * modifier constructed with the same keys in order to take advantage of caching and skipping
  * optimizations. [fullyQualifiedName] should be the fully-qualified `import` name for your modifier
  * factory function, e.g. `com.example.myapp.ui.fancyPadding`.
  *
  * [materialize] must be called to create instance-specific modifiers if you are directly applying a
- * [me.dvyy.compose.minimal.modifier.Modifier] to an element tree node.
+ * [Modifier] to an element tree node.
  */
 public fun Modifier.composed(
 	fullyQualifiedName: String,

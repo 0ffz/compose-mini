@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package me.dvyy.compose.minimal.modifier
+package me.dvyy.compose.mini.modifier
 
 import androidx.compose.runtime.Stable
-import me.dvyy.compose.minimal.modifier.Modifier.Companion.then
+import me.dvyy.compose.mini.modifier.Modifier.Companion.then
 
 /**
  * An ordered, immutable collection of [modifier elements][Modifier.Element] that decorate or add

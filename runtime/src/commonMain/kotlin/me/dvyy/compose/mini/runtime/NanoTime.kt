@@ -1,4 +1,4 @@
-package me.dvyy.compose.minimal.runtime
+package me.dvyy.compose.mini.runtime
 
 /**
  * Multiplatform nanoTime implementation, many implementations originally from

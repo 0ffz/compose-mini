@@ -1,12 +1,12 @@
-package me.dvyy.compose.minimal.runtime
+package me.dvyy.compose.mini.runtime
 
 import androidx.compose.runtime.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import me.dvyy.compose.minimal.runtime.layers.ComposeSceneContext
-import me.dvyy.compose.minimal.runtime.layers.LocalComposeSceneContext
+import me.dvyy.compose.mini.runtime.layers.ComposeSceneContext
+import me.dvyy.compose.mini.runtime.layers.LocalComposeSceneContext
 import kotlin.coroutines.CoroutineContext
 
 /**

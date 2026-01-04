@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.dvyy.compose.minimal.runtime
+package me.dvyy.compose.mini.runtime
 
 // This file contains a subset of browser APIs normally provided by the Kotlin stdlib.
 // However, these were recently removed in favor of kotlinx.browser which is not stable.

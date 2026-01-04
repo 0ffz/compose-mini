@@ -1,4 +1,4 @@
-rootProject.name = "jsonschema-kt"
+rootProject.name = "compose-mini"
 
 pluginManagement {
     repositories {
