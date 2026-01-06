@@ -20,3 +20,4 @@ compose-mini = "x.y.z"
 [libraries]
 compose-mini-runtime = { module = "me.dvyy.compose.mini:runtime", version.ref = "compose-mini" }
 ```
+

@@ -1,4 +1,11 @@
 plugins {
-    alias(idofrontLibs.plugins.kotlin.multiplatform) apply false
-    alias(idofrontLibs.plugins.compose.compiler) apply false
+    id("conventions.publishing") apply false
+    id("conventions.library") apply false
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
 }
