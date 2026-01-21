@@ -1,3 +1,3 @@
 rootProject.name = "compose-mini"
 
-include("runtime", "modifier", "modifier-composed")
+include("runtime", "modifier", "modifier-composed", "layout")
