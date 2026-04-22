@@ -17,7 +17,6 @@
 package me.dvyy.compose.mini.modifier
 
 import androidx.compose.runtime.Stable
-import me.dvyy.compose.mini.modifier.Modifier.Companion.then
 
 /**
  * An ordered, immutable collection of [modifier elements][Modifier.Element] that decorate or add
@@ -120,8 +119,27 @@ public interface Modifier {
 		override infix fun then(other: Modifier): Modifier = other
 		override fun toString(): String = "Modifier"
 	}
+
+	abstract class Node : DelegatableNode {
+		override val node: Node = this
+		var parent: Node? = null
+		var child: Node? = null
+
+		open fun onAttach() {}
+		open fun onDetach() {}
+		open fun onReset() {}
+
+	}
 }
 
+interface DelegatableNode {
+	/**
+	 * A reference of the [Modifier.Node] that holds this node's position in the node hierarchy. If
+	 * the node is a delegate of another node, this will point to the root delegating node that is
+	 * actually part of the node tree. Otherwise, this will point to itself.
+	 */
+	val node: Modifier.Node
+}
 /**
  * A node in a [Modifier] chain. A CombinedModifier always contains at least two elements;
  * a Modifier [outer] that wraps around the Modifier [inner].

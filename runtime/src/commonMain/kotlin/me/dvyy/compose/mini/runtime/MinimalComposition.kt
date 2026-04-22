@@ -47,12 +47,6 @@ import kotlin.coroutines.CoroutineContext
  */
 class MinimalComposition<T>(
     coroutineContext: CoroutineContext,
-    /**
-     * Called when snapshot sate changes, and the [Recomposer] has potentially updated a node in the tree.
-     * You may use your own logic to determine whether layout calculations or a redraw is needed
-     * (see [Mosaic](https://github.com/JakeWharton/mosaic)'s runtime for an example.)
-     */
-    private val onNodesChanged: () -> Unit,
     /** A composable wrapping the entire composition, useful for global [CompositionLocal]s. */
     private val wrapContent: @Composable (content: @Composable () -> Unit) -> Unit,
     /**
@@ -72,8 +66,7 @@ class MinimalComposition<T>(
     private val externalClock = checkNotNull(coroutineContext[MonotonicFrameClock]) {
         "Composition requires an external MonotonicFrameClock in its coroutine context"
     }
-    private var hasFrameWaiters = false // set to true when Recomposer runs, signalling potential changes
-    private val internalClock = BroadcastFrameClock { hasFrameWaiters = true }
+    private val internalClock = BroadcastFrameClock()
     private val job = Job(coroutineContext[Job])
     private val composeContext = coroutineContext + job + internalClock
 
@@ -127,11 +120,6 @@ class MinimalComposition<T>(
                 externalClock.withFrameNanos { nanos ->
                     // Let recomposer update layout
                     internalClock.sendFrame(nanos)
-
-                    if (hasFrameWaiters) {
-                        onNodesChanged()
-                        hasFrameWaiters = false
-                    }
                 }
             } while (job.isActive)
         }
