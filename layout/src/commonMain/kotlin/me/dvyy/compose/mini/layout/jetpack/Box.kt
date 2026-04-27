@@ -10,26 +10,27 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
+import me.dvyy.compose.mini.layout.Layout
 import me.dvyy.compose.mini.modifier.Modifier
 import me.dvyy.compose.mini.modifier.ModifierNodeElement
 import kotlin.jvm.JvmName
 import kotlin.math.max
 
-//@Composable
-//public fun Box(
-//	modifier: Modifier = Modifier,
-//	contentAlignment: Alignment = Alignment.TopStart,
-//	propagateMinConstraints: Boolean = false,
-//	content: @Composable BoxScope.() -> Unit,
-//) {
-//	val measurePolicy = rememberBoxMeasurePolicy(contentAlignment, propagateMinConstraints)
-//	Layout(
-//		content = { BoxScopeInstance.content() },
-//		modifier = modifier,
+@Composable
+public fun Box(
+	modifier: Modifier = Modifier,
+	contentAlignment: Alignment = Alignment.TopStart,
+	propagateMinConstraints: Boolean = false,
+	content: @Composable BoxScope.() -> Unit,
+) {
+	val measurePolicy = rememberBoxMeasurePolicy(contentAlignment, propagateMinConstraints)
+	Layout(
+		content = { BoxScopeInstance.content() },
+		modifier = modifier,
 //		debugInfo = { "Box(alignment=$contentAlignment, propagateMinConstraints=$propagateMinConstraints)" },
-//		measurePolicy = measurePolicy,
-//	)
-//}
+		measurePolicy = measurePolicy,
+	)
+}
 
 @Composable
 fun rememberBoxMeasurePolicy(

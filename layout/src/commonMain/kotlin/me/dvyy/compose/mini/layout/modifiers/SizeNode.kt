@@ -2,10 +2,10 @@ package me.dvyy.compose.mini.layout.modifiers
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.*
+import me.dvyy.compose.mini.layout.jetpack.LayoutModifierNode
 import me.dvyy.compose.mini.layout.jetpack.Measurable
 import me.dvyy.compose.mini.layout.jetpack.MeasureResult
 import me.dvyy.compose.mini.layout.jetpack.MeasureScope
-import me.dvyy.compose.mini.layout.jetpack.modifier.LayoutModifierNode
 import me.dvyy.compose.mini.modifier.Modifier
 import me.dvyy.compose.mini.modifier.ModifierNodeElement
 
@@ -102,7 +102,7 @@ fun Modifier.sizeIn(
 
 /** Sets identical min/max width and height constraints for this element. */
 @Stable
-fun Modifier.size(width: Dp, height: Dp) = sizeIn(width, height, width, height)
+fun Modifier.size(width: Dp, height: Dp) = sizeIn(width, width, height, height)
 
 /** Sets identical min/max width and height constraints for this element. */
 @Stable

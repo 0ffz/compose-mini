@@ -18,24 +18,24 @@ package me.dvyy.compose.mini.layout.modifiers
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.*
+import me.dvyy.compose.mini.layout.jetpack.LayoutModifierNode
 import me.dvyy.compose.mini.layout.jetpack.Measurable
 import me.dvyy.compose.mini.layout.jetpack.MeasureResult
 import me.dvyy.compose.mini.layout.jetpack.MeasureScope
-import me.dvyy.compose.mini.layout.jetpack.modifier.LayoutModifierNode
 import me.dvyy.compose.mini.modifier.Modifier
 import me.dvyy.compose.mini.modifier.ModifierNodeElement
 
 @Stable
 fun Modifier.padding(
-    left: Dp = 0.dp,
+    start: Dp = 0.dp,
     top: Dp = 0.dp,
-    right: Dp = 0.dp,
+    end: Dp = 0.dp,
     bottom: Dp = 0.dp,
 ): Modifier = this.then(
     PaddingElement(
-        start = left,
+        start = start,
         top = top,
-        end = right,
+        end = end,
         bottom = bottom,
     ),
 )

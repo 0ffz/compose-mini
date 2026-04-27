@@ -47,6 +47,7 @@ import kotlin.coroutines.CoroutineContext
  */
 class MinimalComposition<T>(
     coroutineContext: CoroutineContext,
+    private val onNewFrame: (nanos: Long) -> Unit,
     /** A composable wrapping the entire composition, useful for global [CompositionLocal]s. */
     private val wrapContent: @Composable (content: @Composable () -> Unit) -> Unit,
     /**
@@ -120,6 +121,8 @@ class MinimalComposition<T>(
                 externalClock.withFrameNanos { nanos ->
                     // Let recomposer update layout
                     internalClock.sendFrame(nanos)
+
+                    onNewFrame(nanos)
                 }
             } while (job.isActive)
         }

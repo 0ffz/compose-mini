@@ -20,7 +20,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
+import me.dvyy.compose.mini.layout.Layout
 import me.dvyy.compose.mini.modifier.Modifier
+
+@Composable
+public fun Row(
+    modifier: Modifier = Modifier,
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
+    verticalAlignment: Alignment.Vertical = Alignment.Top,
+    content: @Composable RowScope.() -> Unit,
+) {
+    val measurePolicy = rowMeasurePolicy(horizontalArrangement, verticalAlignment)
+    Layout(
+        content = { RowScopeInstance.content() },
+        modifier = modifier,
+        measurePolicy = measurePolicy,
+    )
+}
 
 internal val DefaultRowMeasurePolicy: MeasurePolicy = RowColumnMeasurePolicy(
     orientation = LayoutOrientation.Horizontal,

@@ -1,9 +1,6 @@
-package me.dvyy.compose.mini.layout.jetpack.modifier
+package me.dvyy.compose.mini.layout.jetpack
 
 import androidx.compose.ui.unit.Constraints
-import me.dvyy.compose.mini.layout.jetpack.Measurable
-import me.dvyy.compose.mini.layout.jetpack.MeasureResult
-import me.dvyy.compose.mini.layout.jetpack.MeasureScope
 import me.dvyy.compose.mini.modifier.DelegatableNode
 import me.dvyy.compose.mini.modifier.Modifier
 import me.dvyy.compose.mini.modifier.ModifierNodeElement
@@ -240,12 +237,13 @@ interface LayoutModifierNode : DelegatableNode {
  * @see androidx.compose.ui.layout.LayoutModifier
  */
 fun Modifier.layout(measure: MeasureScope.(Measurable, Constraints) -> MeasureResult) =
-    this then LayoutModifierElement(measure)
+    this then _root_ide_package_.me.dvyy.compose.mini.layout.jetpack.LayoutModifierElement(measure)
 
 data class LayoutModifierElement(
     val measureBlock: MeasureScope.(Measurable, Constraints) -> MeasureResult,
 ) : ModifierNodeElement<InPlaceLayoutModifierNode>() {
-    override fun create(): InPlaceLayoutModifierNode = InPlaceLayoutModifierNode(measureBlock)
+    override fun create(): InPlaceLayoutModifierNode =
+        _root_ide_package_.me.dvyy.compose.mini.layout.jetpack.InPlaceLayoutModifierNode(measureBlock)
 
     override fun update(node: InPlaceLayoutModifierNode) {
         node.measureBlock = measureBlock

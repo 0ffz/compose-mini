@@ -122,6 +122,7 @@ public interface Modifier {
 
 	abstract class Node : DelegatableNode {
 		override val node: Node = this
+		var kindSet: Int = 0
 		var parent: Node? = null
 		var child: Node? = null
 

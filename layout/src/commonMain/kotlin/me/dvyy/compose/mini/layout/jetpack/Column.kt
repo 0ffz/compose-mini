@@ -6,8 +6,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
+import me.dvyy.compose.mini.layout.Layout
 import me.dvyy.compose.mini.modifier.Modifier
 import kotlin.jvm.JvmName
+
+@Composable
+public fun Column(
+    modifier: Modifier = Modifier,
+    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
+    horizontalAlignment: Alignment.Horizontal = Alignment.Start,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    val measurePolicy = columnMeasurePolicy(verticalArrangement, horizontalAlignment)
+    Layout(
+        content = { ColumnScopeInstance.content() },
+        modifier = modifier,
+        measurePolicy = measurePolicy,
+    )
+}
 
 internal val DefaultColumnMeasurePolicy: MeasurePolicy = RowColumnMeasurePolicy(
     orientation = LayoutOrientation.Vertical,
