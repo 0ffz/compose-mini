@@ -2,6 +2,16 @@ plugins {
     id("com.vanniktech.maven.publish")
 }
 
+publishing {
+    repositories {
+        maven {
+            name = "mineinabyss"
+            url = uri("https://repo.mineinabyss.com/snapshots")
+            credentials(PasswordCredentials::class)
+        }
+    }
+}
+
 mavenPublishing {
     publishToMavenCentral()
     if (!version.toString().endsWith("-SNAPSHOT")) {
